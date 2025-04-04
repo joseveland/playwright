@@ -1,7 +1,7 @@
 {
   "family": "playwright-task",
-  "taskRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/biocloud_internal_api_execution_role",
-  "executionRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/biocloud_internal_api_execution_role",
+  "taskRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_ECS_TASK_DEPLOYMENT_ROLE",
+  "executionRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_ECS_EXECUTION_ROLE",
   "containerDefinitions": [
     {
       "name": "playwright-serving",

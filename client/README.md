@@ -93,7 +93,7 @@ playwright server locally you should create a shared docker network
       --function-name "jvelandia-playwright-client" \
       --package-type Image \
       --code "ImageUri=YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/playwright-client:latest" \
-      --role "arn:aws:iam::YOUR_ACCOUNT_ID:role/gdr-agent-role" \
+      --role "arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_LAMBDA_EXECUTION_ROLE" \
       --timeout 60 
     ```
     **NOTE:** make sure to change the placeholder UPPERCASE values with your

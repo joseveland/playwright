@@ -80,11 +80,13 @@ one for you to use
       * Change the demo image name ARN `YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/playwright-serve`
       with the one previously uploaded to ECR
 <br></br>
-      * Change the demo role `arn:aws:iam::YOUR_ACCOUNT_ID:role/biocloud_internal_api_execution_role`
-      with a valid role in your AWS ecosystem
+      * Change the demo role `arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_ECS_TASK_DEPLOYMENT_ROLE`
+      and `arn:aws:iam::YOUR_ACCOUNT_ID:role/YOUR_ECS_EXECUTION_ROLE`
+      with valid roles in your AWS ecosystem; probably both being 1 role
+      with al required permissions/policies, so it does everything like:
 <br></br>
-        * The role should be able to create logs, some ECR access, etc.
-        For example:
+        * The unified role should be able to create logs for execution, and some
+        ECR access for task deployments, etc. For example these two policies inside:
           ```json
           {
               "Version": "2012-10-17",
