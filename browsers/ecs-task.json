@@ -1,0 +1,41 @@
+{
+  "family": "playwright-task",
+  "taskRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/biocloud_internal_api_execution_role",
+  "executionRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/biocloud_internal_api_execution_role",
+  "containerDefinitions": [
+    {
+      "name": "playwright-serving",
+      "image": "YOUR_ACCOUNT_ID.dkr.ecr.YOUR_REGION.amazonaws.com/playwright-server",
+      "essential": true,
+      "linuxParameters": {
+        "initProcessEnabled": true
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/services/playwright-serving",
+          "awslogs-create-group": "true",
+          "awslogs-region": "YOUR_REGION",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "portMappings": [
+        {
+            "containerPort": 8080,
+            "hostPort": 8080,
+            "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "HELLO",
+          "value": "world"
+        }
+      ]
+    }
+  ],
+  "requiresCompatibilities": ["FARGATE"],
+  "networkMode": "awsvpc",
+  "cpu": "2048",
+  "memory": "4096"
+}
